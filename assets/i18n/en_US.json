@@ -15,5 +15,11 @@
             "ConfirmPassword":"Confirm Password",
             "Confirm":"Confirm"
         }
+    },
+    "Home":{
+       "Home":{
+        "Wellcome":"What's up, ",
+        "Category":"CATEGORIES"
+       } 
     }
 }

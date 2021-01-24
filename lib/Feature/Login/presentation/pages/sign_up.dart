@@ -91,6 +91,9 @@ class _SignUpState extends State<SignUp> {
                 width: size.width * 0.8,
                 height: size.height * 0.07,
                 text: translate("Login.SignUp.Confirm"),
+                onPress: () {
+                  Navigator.pushNamed(context, '/Home');
+                },
               )
             ],
           ),
