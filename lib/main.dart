@@ -1,7 +1,17 @@
+import 'package:Day/Feature/Login/presentation/pages/walkthrough.dart';
 import 'package:Day/core/utils/constans.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
-void main() {
+LocalizationDelegate delegate;
+void main() async {
+  delegate = await LocalizationDelegate.create(
+    fallbackLocale: 'en_US',
+    supportedLocales: [
+      'en_US',
+    ],
+  );
   runApp(MyApp());
 }
 
@@ -9,22 +19,39 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
       title: 'Day',
       theme: ThemeData(
+        scaffoldBackgroundColor: blue,
         textTheme: TextTheme(
-          headline1: TextStyle(fontSize: size.width * 0.08, color: white),
-          headline2: TextStyle(fontSize: size.width * 0.06, color: white),
-          button: TextStyle(fontSize: size.width * 0.04, color: white),
-          body1: TextStyle(fontSize: size.width * 0.03, color: white),
-          body2: TextStyle(fontSize: size.width * 0.045, color: white),
+          headline1: TextStyle(
+            fontSize: 25,
+            color: white,
+            fontWeight: FontWeight.bold,
+          ),
+          headline2: TextStyle(fontSize: 20, color: white),
+          button: TextStyle(fontSize: 15, color: white),
+          bodyText1: TextStyle(fontSize: 13, color: white),
+          bodyText2: TextStyle(fontSize: 15, color: white),
           headline3: TextStyle(
-              fontSize: size.width * 0.03,
-              color: skyBlue,
-              fontFamily: 'Montserrat'),
+            fontSize: 16,
+            color: skyBlue,
+            fontFamily: 'Montserrat',
+            letterSpacing: 2,
+          ),
         ),
       ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Walkthrough(),
+      },
     );
   }
 }
