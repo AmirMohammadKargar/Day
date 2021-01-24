@@ -1,4 +1,4 @@
-import 'package:Day/Feature/Home/presentation/pages/Home.dart';
+import 'package:Day/Feature/Drawer/presentation/pages/HomePage.dart';
 import 'package:Day/Feature/Login/presentation/pages/sign_up.dart';
 import 'package:Day/Feature/Login/presentation/pages/walkthrough.dart';
 import 'package:Day/core/utils/constans.dart';
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Walkthrough(),
         '/SignUp': (context) => SignUp(),
-        '/Home': (context) => Home(),
+        '/Home': (context) => DrawerScreen(),
       },
     );
   }
