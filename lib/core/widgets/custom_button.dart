@@ -6,17 +6,18 @@ class CustomButton extends StatelessWidget {
     Key key,
     @required this.size,
     this.text,
-    this.onPress,
+    this.onPress, this.width, this.height,
   }) : super(key: key);
 
   final Size size;
   final String text;
   final Function onPress;
+  final double width,height;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width * 0.8,
-      height: size.height * 0.075,
+      width: width,
+      height:height,
       decoration: BoxDecoration(
         color: deepBlue,
         borderRadius: BorderRadius.circular(20),

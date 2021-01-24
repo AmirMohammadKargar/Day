@@ -1,3 +1,4 @@
+import 'package:Day/Feature/Login/presentation/pages/sign_up.dart';
 import 'package:Day/Feature/Login/presentation/pages/walkthrough.dart';
 import 'package:Day/core/utils/constans.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Walkthrough(),
+        '/SignUp': (context) => SignUp(),
       },
     );
   }
