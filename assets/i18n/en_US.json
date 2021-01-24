@@ -1,0 +1,10 @@
+{
+    "appTitle": "Day",
+    "Login":{
+        "Walkthrough":{
+            "Head":"Wellcome to Day!!!",
+            "Body":"Plan for the day",
+            "Button":"Start"
+        }
+    }
+}
