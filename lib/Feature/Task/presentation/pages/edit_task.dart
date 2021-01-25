@@ -5,11 +5,11 @@ import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_translate/flutter_translate.dart';
 
-class AddTask extends StatefulWidget {
-  AddTask({Key key}) : super(key: key);
+class EditTask extends StatefulWidget {
+  EditTask({Key key}) : super(key: key);
 
   @override
-  _AddTaskState createState() => _AddTaskState();
+  _EditTaskState createState() => _EditTaskState();
 }
 
 String dropdownValue = 'One';
@@ -18,7 +18,7 @@ String _valueChanged1 = '';
 String _valueToValidate1 = '';
 String _valueSaved1 = '';
 
-class _AddTaskState extends State<AddTask> {
+class _EditTaskState extends State<EditTask> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -29,7 +29,7 @@ class _AddTaskState extends State<AddTask> {
         elevation: 0.0,
         centerTitle: true,
         title: Text(
-          translate("Task.AddTask.Head"),
+          translate("Task.EditTask.Head"),
           style: Theme.of(context).textTheme.headline2.copyWith(
                 fontSize: size.width * 0.06,
                 fontWeight: FontWeight.bold,
@@ -78,7 +78,7 @@ class _AddTaskState extends State<AddTask> {
               ),
               SizedBox(height: size.height * 0.03),
               Text(
-                translate("Task.AddTask.Body"),
+                translate("Task.EditTask.Body"),
                 style: Theme.of(context).textTheme.headline2.copyWith(
                       fontSize: size.width * 0.06,
                       fontWeight: FontWeight.bold,
@@ -88,13 +88,13 @@ class _AddTaskState extends State<AddTask> {
               TextInput(
                 size: size,
                 icon: Icons.title,
-                text: translate("Task.AddTask.Title"),
+                text: translate("Task.EditTask.Title"),
               ),
               SizedBox(height: size.height * 0.02),
               TextInput(
                 size: size,
                 icon: Icons.description,
-                text: translate("Task.AddTask.Description"),
+                text: translate("Task.EditTask.Description"),
               ),
               SizedBox(height: size.height * 0.02),
               Container(
@@ -190,7 +190,7 @@ class _AddTaskState extends State<AddTask> {
                       color: skyBlue,
                     ),
                     border: InputBorder.none,
-                    labelText: translate("Task.AddTask.Time"),
+                    labelText: translate("Task.EditTask.Time"),
                     labelStyle: Theme.of(context)
                         .textTheme
                         .button
@@ -216,12 +216,25 @@ class _AddTaskState extends State<AddTask> {
               ),
               SizedBox(height: size.height * 0.06),
               Center(
-                child: CustomButton(
-                  size: size,
-                  text: translate("Task.AddTask.Add"),
-                  height: size.height * 0.06,
-                  width: size.width * 0.7,
-                  color: deepBlue,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomButton(
+                      size: size,
+                      color: deepBlue,
+                      text: translate("Task.EditTask.Edit"),
+                      height: size.height * 0.06,
+                      width: size.width * 0.4,
+                    ),
+                    SizedBox(width: size.width * 0.01),
+                    CustomButton(
+                      size: size,
+                      color: red,
+                      text: translate("Task.EditTask.Delete"),
+                      height: size.height * 0.06,
+                      width: size.width * 0.4,
+                    ),
+                  ],
                 ),
               )
             ],

@@ -1,5 +1,6 @@
 import 'package:Day/core/utils/constans.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_translate/flutter_translate.dart';
 
 class MyHomePage extends StatelessWidget {
   List<Map> drawerItems = [
@@ -39,19 +40,28 @@ class MyHomePage extends StatelessWidget {
             height: size.height * 0.1,
           ),
           Column(children: [
-            RowIconTextButton(size: size, icon: Icons.bookmark, text: 'Task'),
+            RowIconTextButton(
+              size: size,
+              icon: Icons.bookmark,
+              text: translate("Drawer.DrawerScreen.Task"),
+              onPress: () {
+                Navigator.pushNamed(context, "/AllTask");
+              },
+            ),
             SizedBox(
               height: size.height * 0.01,
             ),
             RowIconTextButton(
-                size: size, icon: Icons.category, text: 'Category'),
+                size: size,
+                icon: Icons.category,
+                text: translate("Drawer.DrawerScreen.Category")),
             SizedBox(
               height: size.height * 0.01,
             ),
             RowIconTextButton(
               size: size,
               icon: Icons.add,
-              text: 'Add new Task',
+              text: translate("Drawer.DrawerScreen.Add"),
               onPress: () {
                 Navigator.pushNamed(context, "/AddTask");
               },
@@ -70,7 +80,7 @@ class MyHomePage extends StatelessWidget {
                 width: 10,
               ),
               Text(
-                'Settings',
+                translate("Drawer.DrawerScreen.Setting"),
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
@@ -86,7 +96,7 @@ class MyHomePage extends StatelessWidget {
                 width: 10,
               ),
               Text(
-                'Log out',
+                translate("Drawer.DrawerScreen.LogOut"),
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               )

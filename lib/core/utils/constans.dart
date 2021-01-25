@@ -8,3 +8,4 @@ Color deepBlue = Color(0xFF041955);
 Color skyBlue = Color(0xFF97B4FF);
 Color white = Color(0xFFFFFFFF);
 Color pink = Color(0xFFEB06FF);
+Color red = Color(0xFFE40C0C);

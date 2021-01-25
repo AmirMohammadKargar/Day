@@ -23,6 +23,18 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return GestureDetector(
+      onTap: () {
+        if (isDrawerOpen == true) {
+          setState(
+            () {
+              xOffset = 0;
+              yOffset = 0;
+              scaleFactor = 1;
+              isDrawerOpen = false;
+            },
+          );
+        }
+      },
       onHorizontalDragEnd: (dragEndDetails) {
         if (dragEndDetails.primaryVelocity < 0) {
           // Page forwards
@@ -218,6 +230,9 @@ class _HomeState extends State<Home> {
                           color: pink,
                           width: 20,
                           isComplete: false,
+                          onPress: () {
+                            Navigator.pushNamed(context, "/EditTask");
+                          },
                         ),
                       );
                     },

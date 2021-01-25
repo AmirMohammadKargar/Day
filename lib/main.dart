@@ -2,6 +2,8 @@ import 'package:Day/Feature/Drawer/presentation/pages/HomePage.dart';
 import 'package:Day/Feature/Login/presentation/pages/sign_up.dart';
 import 'package:Day/Feature/Login/presentation/pages/walkthrough.dart';
 import 'package:Day/Feature/Task/presentation/pages/Add_Task.dart';
+import 'package:Day/Feature/Task/presentation/pages/all_task.dart';
+import 'package:Day/Feature/Task/presentation/pages/edit_task.dart';
 import 'package:Day/core/utils/constans.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -57,6 +59,8 @@ class MyApp extends StatelessWidget {
         '/SignUp': (context) => SignUp(),
         '/Home': (context) => DrawerScreen(),
         '/AddTask': (context) => AddTask(),
+        '/EditTask': (context) => EditTask(),
+        '/AllTask': (context) => AllTask(),
       },
     );
   }

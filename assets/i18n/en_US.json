@@ -16,6 +16,15 @@
             "Confirm":"Confirm"
         }
     },
+    "Drawer":{
+        "DrawerScreen":{
+            "Task":"Task",
+            "Category":"Category",
+            "Add":"Add new Task",
+            "Setting":"Settings",
+            "LogOut":"Log Out"
+        }
+    },
     "Home":{
        "Home":{
         "Wellcome":"What's up, ",
@@ -31,6 +40,19 @@
             "Category":"Category",
             "Time":"Date Time",
             "Add":"Add"
+        },
+        "EditTask":{
+            "Head":"Edit Task",
+            "Body":"Edit Your Task",
+            "Title":"Title",
+            "Description":"Description",
+            "Category":"Category",
+            "Time":"Date Time",
+            "Edit":"Edit",
+            "Delete":"Delete"
+        },
+        "AllTask":{
+            "Head":"All Task"
         }
     }
 }

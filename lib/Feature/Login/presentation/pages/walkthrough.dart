@@ -1,3 +1,4 @@
+import 'package:Day/core/utils/constans.dart';
 import 'package:Day/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_translate/flutter_translate.dart';
@@ -36,6 +37,7 @@ class Walkthrough extends StatelessWidget {
             ),
             SizedBox(height: size.height * 0.08),
             CustomButton(
+              color: deepBlue,
               size: size,
               width: size.width * 0.85,
               height: size.height * 0.075,
