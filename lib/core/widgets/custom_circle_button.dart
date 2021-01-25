@@ -7,10 +7,12 @@ class CustomCircleButton extends StatelessWidget {
     @required this.size,
     this.width,
     this.height,
+    this.onPress,
   }) : super(key: key);
 
   final Size size;
   final double width, height;
+  final Function onPress;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +32,9 @@ class CustomCircleButton extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            onPress();
+          },
           borderRadius: BorderRadius.circular(90),
           child: Icon(
             Icons.add,

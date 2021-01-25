@@ -38,33 +38,25 @@ class MyHomePage extends StatelessWidget {
           SizedBox(
             height: size.height * 0.1,
           ),
-          Column(
-            children: drawerItems
-                .map((element) => Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Icon(
-                            element['icon'],
-                            color: skyBlue,
-                            size: size.width * 0.07,
-                          ),
-                          SizedBox(
-                            width: size.width * 0.01,
-                          ),
-                          Text(
-                            element['title'],
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: size.width * 0.04,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ))
-                .toList(),
-          ),
+          Column(children: [
+            RowIconTextButton(size: size, icon: Icons.bookmark, text: 'Task'),
+            SizedBox(
+              height: size.height * 0.01,
+            ),
+            RowIconTextButton(
+                size: size, icon: Icons.category, text: 'Category'),
+            SizedBox(
+              height: size.height * 0.01,
+            ),
+            RowIconTextButton(
+              size: size,
+              icon: Icons.add,
+              text: 'Add new Task',
+              onPress: () {
+                Navigator.pushNamed(context, "/AddTask");
+              },
+            )
+          ]),
           SizedBox(
             height: size.height * 0.2,
           ),
@@ -101,6 +93,48 @@ class MyHomePage extends StatelessWidget {
             ],
           )
         ],
+      ),
+    );
+  }
+}
+
+class RowIconTextButton extends StatelessWidget {
+  const RowIconTextButton({
+    Key key,
+    @required this.size,
+    this.icon,
+    this.text,
+    this.onPress,
+  }) : super(key: key);
+
+  final Size size;
+  final IconData icon;
+  final String text;
+  final Function onPress;
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: () {
+          onPress();
+        },
+        child: Row(
+          children: [
+            Icon(
+              icon,
+              color: skyBlue,
+              size: size.width * 0.08,
+            ),
+            Text(
+              "$text",
+              style: Theme.of(context)
+                  .textTheme
+                  .button
+                  .copyWith(fontSize: size.width * 0.04),
+            )
+          ],
+        ),
       ),
     );
   }

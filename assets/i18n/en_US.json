@@ -21,5 +21,16 @@
         "Wellcome":"What's up, ",
         "Category":"CATEGORIES"
        } 
+    },
+    "Task":{
+        "AddTask":{
+            "Head":"New Task",
+            "Body":"Create New Task",
+            "Title":"Title",
+            "Description":"Description",
+            "Category":"Category",
+            "Time":"Date Time",
+            "Add":"Add"
+        }
     }
 }

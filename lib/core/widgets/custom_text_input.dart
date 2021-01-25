@@ -15,7 +15,6 @@ class TextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width * 0.8,
       decoration: BoxDecoration(
           color: darkBlue,
           borderRadius: BorderRadius.circular(20),
