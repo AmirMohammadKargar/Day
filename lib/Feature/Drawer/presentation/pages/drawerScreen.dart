@@ -72,17 +72,26 @@ class MyHomePage extends StatelessWidget {
           ),
           Row(
             children: [
-              Icon(
-                Icons.settings,
-                color: Colors.white,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                translate("Drawer.DrawerScreen.Setting"),
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/Settings");
+                },
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      translate("Drawer.DrawerScreen.Setting"),
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
                 width: 10,

@@ -4,7 +4,8 @@
         "Walkthrough":{
             "Head":"Wellcome to Day!!!",
             "Body":"Plan for the day",
-            "Button":"Start"
+            "SignIn":"Sign In",
+            "SignUp":"Sign Up"
         },
         "SignUp":{
             "Head":"Complete your information",
@@ -14,6 +15,12 @@
             "Password":"Password",
             "ConfirmPassword":"Confirm Password",
             "Confirm":"Confirm"
+        },
+        "SignIn":{
+            "Head":"Sign In",
+            "Email":"Email",
+            "Password":"Password",
+            "SignIn":"Sign In"
         }
     },
     "Drawer":{
@@ -53,6 +60,17 @@
         },
         "AllTask":{
             "Head":"All Task"
+        }
+    },
+    "Settings":{
+        "Settings":{
+            "Head":"Settings",
+            "Name":"Name",
+            "LastName":"Last Name",
+            "Email":"Email",
+            "Language":"Language",
+            "Confirm":"Confirm",
+            "Change":"Change Password"
         }
     }
 }

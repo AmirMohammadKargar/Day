@@ -41,9 +41,20 @@ class Walkthrough extends StatelessWidget {
               size: size,
               width: size.width * 0.85,
               height: size.height * 0.075,
-              text: translate("Login.Walkthrough.Button"),
+              text: translate("Login.Walkthrough.SignUp"),
               onPress: () {
                 Navigator.pushNamed(context, '/SignUp');
+              },
+            ),
+            SizedBox(height: size.height * 0.02),
+            CustomButton(
+              color: deepBlue,
+              size: size,
+              width: size.width * 0.85,
+              height: size.height * 0.075,
+              text: translate("Login.Walkthrough.SignIn"),
+              onPress: () {
+                Navigator.pushNamed(context, '/SignIn');
               },
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:Day/core/utils/constans.dart';
+import 'package:Day/core/widgets/back_button.dart';
 import 'package:Day/core/widgets/custom_button.dart';
 import 'package:Day/core/widgets/custom_text_input.dart';
 import 'package:date_time_picker/date_time_picker.dart';
@@ -35,32 +36,7 @@ class _EditTaskState extends State<EditTask> {
                 fontWeight: FontWeight.bold,
               ),
         ),
-        leading: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: size.width * 0.01,
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              color: darkBlue,
-              shape: BoxShape.circle,
-            ),
-            child: Material(
-              borderRadius: BorderRadius.circular(250),
-              color: Colors.transparent,
-              child: InkWell(
-                borderRadius: BorderRadius.circular(250),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Icon(
-                  Icons.keyboard_arrow_left,
-                  color: skyBlue,
-                  size: size.width * 0.08,
-                ),
-              ),
-            ),
-          ),
-        ),
+        leading: CustomBackButton(size: size),
       ),
       body: SingleChildScrollView(
         child: Padding(

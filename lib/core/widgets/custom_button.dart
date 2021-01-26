@@ -10,13 +10,15 @@ class CustomButton extends StatelessWidget {
     this.width,
     this.height,
     this.color,
+    this.fontSize,
   }) : super(key: key);
 
   final Size size;
   final String text;
   final Function onPress;
-  final double width, height;
+  final double width, height, fontSize;
   final Color color;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +46,7 @@ class CustomButton extends StatelessWidget {
             child: Text(
               text,
               style: Theme.of(context).textTheme.button.copyWith(
-                    fontSize: size.width * 0.05,
+                    fontSize: fontSize == null ? size.width * 0.05 : fontSize,
                   ),
             ),
           ),

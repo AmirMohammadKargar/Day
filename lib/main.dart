@@ -1,6 +1,8 @@
 import 'package:Day/Feature/Drawer/presentation/pages/HomePage.dart';
+import 'package:Day/Feature/Login/presentation/pages/sign_in.dart';
 import 'package:Day/Feature/Login/presentation/pages/sign_up.dart';
 import 'package:Day/Feature/Login/presentation/pages/walkthrough.dart';
+import 'package:Day/Feature/Settings/presentation/pages/settings.dart';
 import 'package:Day/Feature/Task/presentation/pages/Add_Task.dart';
 import 'package:Day/Feature/Task/presentation/pages/all_task.dart';
 import 'package:Day/Feature/Task/presentation/pages/edit_task.dart';
@@ -57,10 +59,12 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Walkthrough(),
         '/SignUp': (context) => SignUp(),
+        '/SignIn': (context) => SignIn(),
         '/Home': (context) => DrawerScreen(),
         '/AddTask': (context) => AddTask(),
         '/EditTask': (context) => EditTask(),
         '/AllTask': (context) => AllTask(),
+        "/Settings": (context) => Settings(),
       },
     );
   }
