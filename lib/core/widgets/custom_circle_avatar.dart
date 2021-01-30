@@ -28,6 +28,8 @@ class CustomCircleAvatar extends StatelessWidget {
               size: size,
               width: size.width * 0.1,
               height: size.height * 0.05,
+              icon: Icons.add,
+              color: pink,
             ),
           )
         ],
