@@ -8,11 +8,15 @@ class CustomCircleButton extends StatelessWidget {
     this.width,
     this.height,
     this.onPress,
+    this.icon,
+    this.color,
   }) : super(key: key);
 
   final Size size;
   final double width, height;
   final Function onPress;
+  final IconData icon;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,10 +24,10 @@ class CustomCircleButton extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: pink,
+        color: color,
         boxShadow: [
           BoxShadow(
-            color: pink,
+            color: color,
             spreadRadius: -5,
             blurRadius: 20,
           ),
@@ -37,7 +41,7 @@ class CustomCircleButton extends StatelessWidget {
           },
           borderRadius: BorderRadius.circular(90),
           child: Icon(
-            Icons.add,
+            icon,
             color: white,
           ),
         ),

@@ -12,8 +12,8 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-double xOffset = 0;
-double yOffset = 0;
+double xOffset = 0, xxOffset = 0;
+double yOffset = 0, yyOffset = 0;
 double scaleFactor = 1;
 
 bool isDrawerOpen = false;
@@ -83,6 +83,8 @@ class _HomeState extends State<Home> {
             size: size,
             width: size.width * 0.15,
             height: size.height * 0.08,
+            icon: Icons.add,
+            color: pink,
             onPress: () {
               Navigator.pushNamed(context, '/AddTask');
             },
@@ -223,17 +225,7 @@ class _HomeState extends State<Home> {
                           vertical: size.height * 0.02,
                           horizontal: size.width * 0.05,
                         ),
-                        child: TaskItem(
-                          size: size,
-                          task: "25 ",
-                          category: "Business",
-                          color: pink,
-                          width: 20,
-                          isComplete: false,
-                          onPress: () {
-                            Navigator.pushNamed(context, "/EditTask");
-                          },
-                        ),
+                        child: Item(size: size),
                       );
                     },
                   ),
@@ -241,6 +233,107 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class Item extends StatefulWidget {
+  const Item({
+    Key key,
+    @required this.size,
+  }) : super(key: key);
+
+  final Size size;
+
+  @override
+  _ItemState createState() => _ItemState();
+}
+
+bool isOpen = false;
+
+class _ItemState extends State<Item> {
+  @override
+  Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    return GestureDetector(
+      onHorizontalDragEnd: (dragEndDetails) {
+        if (dragEndDetails.primaryVelocity < 0) {
+          // Page forwards
+          print('Move page forwards');
+          setState(
+            () {
+              xxOffset = 0;
+              isOpen = false;
+            },
+          );
+        } else if (dragEndDetails.primaryVelocity > 5) {
+          // Page backwards
+          print('Move page backwards');
+          setState(
+            () {
+              xxOffset = 150;
+              isOpen = true;
+            },
+          );
+        }
+      },
+      child: AnimatedContainer(
+        transform: Matrix4.translationValues(xxOffset, yyOffset, 0)
+          ..scale(scaleFactor),
+        duration: Duration(milliseconds: 250),
+        child: Row(
+          children: [
+            AnimatedSwitcher(
+              duration: Duration(milliseconds: 200),
+              child: isOpen == true
+                  ? Row(
+                      children: [
+                        CustomCircleButton(
+                          size: size,
+                          width: size.width * 0.12,
+                          height: size.height * 0.06,
+                          icon: Icons.delete,
+                          color: red,
+                          onPress: () {
+                            Navigator.pushNamed(context, '/AddTask');
+                          },
+                        ),
+                        SizedBox(
+                          width: size.width * 0.01,
+                        ),
+                        CustomCircleButton(
+                          size: size,
+                          width: size.width * 0.12,
+                          height: size.height * 0.06,
+                          icon: Icons.check,
+                          color: Colors.green,
+                          onPress: () {
+                            Navigator.pushNamed(context, '/AddTask');
+                          },
+                        ),
+                        SizedBox(
+                          width: size.width * 0.01,
+                        ),
+                      ],
+                    )
+                  : Text(''),
+            ),
+            Flexible(
+              child: TaskItem(
+                size: widget.size,
+                task: "25 ",
+                category: "Business",
+                color: pink,
+                width: size.width * 0.9,
+                isComplete: false,
+                onPress: () {
+                  Navigator.pushNamed(context, "/EditTask");
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

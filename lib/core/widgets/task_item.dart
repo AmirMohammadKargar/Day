@@ -22,7 +22,7 @@ class TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width * 0.5,
+      width: width,
       height: size.height * 0.1,
       decoration: BoxDecoration(
         color: deepBlue,
