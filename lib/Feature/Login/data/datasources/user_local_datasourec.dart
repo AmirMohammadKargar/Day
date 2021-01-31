@@ -1,4 +1,5 @@
 import 'package:Day/Feature/Login/domain/entities/user.dart';
+import 'package:Day/core/database/day_database.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,8 +15,8 @@ abstract class UserLocalDataSource {
 
 class UserLocalDataSourceImp implements UserLocalDataSource {
   final SharedPreferences sharedPreferences;
-
-  UserLocalDataSourceImp({@required this.sharedPreferences});
+  final AppDatabase db;
+  UserLocalDataSourceImp({@required this.sharedPreferences, @required this.db});
 
   @override
   Future<void> cacheUser(UserModel userToCache) {
@@ -32,9 +33,18 @@ class UserLocalDataSourceImp implements UserLocalDataSource {
   }
 
   @override
-  Future<UserModel> getUserDB(email, password) {
-    // TODO: implement getUserDB
-    throw UnimplementedError();
+  Future<UserModel> getUserDB(email, password) async {
+    List<TabelUser> users = await db.getAllTasks();
+    for (int i = 0; i < users.length; i++) {
+      if (users[i].email == email && users[i].password == password) {
+        return UserModel(
+            email: email,
+            password: password,
+            name: users[i].name,
+            lastName: users[i].lastName);
+      }
+    }
+    return null;
   }
 
   @override
@@ -45,7 +55,7 @@ class UserLocalDataSourceImp implements UserLocalDataSource {
   }
 
   @override
-  Future<User> setUser(email, password, name, lastName) {
+  Future<UserModel> setUser(email, password, name, lastName) {
     // TODO: implement setUser
     throw UnimplementedError();
   }

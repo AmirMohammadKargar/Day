@@ -34,11 +34,14 @@ dependencies:
   equatable: ^0.4.0
   get_it: ^2.0.1
   shared_preferences: ^0.5.3+4
+  moor_flutter: ^1.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito: ^4.1.0
+  moor_generator: ^1.4.0
+  build_runner:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
