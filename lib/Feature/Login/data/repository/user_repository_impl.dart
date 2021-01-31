@@ -28,6 +28,7 @@ class UserRepositoryImpl implements UserRepository {
     } else {
       try {
         final user = await localDataSource.getUserDB(email, password);
+        localDataSource.cacheUser(user);
         return Right(user);
       } on DbException {
         return Left(DbFailure());
@@ -37,8 +38,13 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<Either<Failure, User>> setUser(
-      String email, String password, String name, String lastName) {
-    // TODO: implement getRandomNumberTrivia
-    return null;
+      String email, String password, String name, String lastName) async {
+    try {
+      final register =
+          await localDataSource.setUser(email, password, name, lastName);
+      return Right(register);
+    } on DbException {
+      return Left(DbFailure());
+    }
   }
 }

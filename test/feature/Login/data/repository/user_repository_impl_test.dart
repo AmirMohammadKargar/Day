@@ -98,4 +98,38 @@ void main() {
       });
     });
   });
+  group('setUser', () {
+    final email = "test@email.com";
+    final password = "123";
+    final name = "Amir";
+    final lastName = "Kargar";
+    final tUserModel = UserModel(
+      email: "test@email.com",
+      password: '123',
+      name: "Amir",
+      lastName: "Kargar",
+    );
+    final User tUser = tUserModel;
+
+    test('should set user to DB', () async {
+      //arrange
+      when(mockLocalDataSource.setUser(any, any, any, any))
+          .thenAnswer((_) async => tUser);
+      // act
+      final result = await repository.setUser(email, password, name, lastName);
+      // assert
+      verify(mockLocalDataSource.setUser(any, any, any, any));
+      expect(result, equals(Right(tUser)));
+    });
+    test('should throw  error fot set user to DB', () async {
+      //arrange
+      when(mockLocalDataSource.setUser(any, any, any, any))
+          .thenThrow(DbException());
+      // act
+      final result = await repository.setUser(email, password, name, lastName);
+      // assert
+      verify(mockLocalDataSource.setUser(any, any, any, any));
+      expect(result, equals(Left(DbFailure())));
+    });
+  });
 }
