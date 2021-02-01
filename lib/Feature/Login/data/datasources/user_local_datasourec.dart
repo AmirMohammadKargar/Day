@@ -19,8 +19,15 @@ class UserLocalDataSourceImp implements UserLocalDataSource {
   UserLocalDataSourceImp({@required this.sharedPreferences, @required this.db});
 
   @override
-  Future<void> cacheUser(UserModel userToCache) {
-    throw UnimplementedError();
+  Future<void> cacheUser(UserModel userToCache) async {
+    sharedPreferences.setBool("ISLOGGED", true);
+    List<String> user = [
+      userToCache.email,
+      userToCache.password,
+      userToCache.name,
+      userToCache.lastName
+    ];
+    sharedPreferences.setStringList("USER", user);
   }
 
   @override
@@ -53,8 +60,12 @@ class UserLocalDataSourceImp implements UserLocalDataSource {
   }
 
   @override
-  Future<UserModel> setUser(email, password, name, lastName) {
-    // TODO: implement setUser
-    throw UnimplementedError();
+  Future<UserModel> setUser(email, password, name, lastName) async {
+    TabelUser user = TabelUser(
+        email: email, password: password, name: name, lastName: lastName);
+    UserModel userMdoel = UserModel(
+        email: email, password: password, name: name, lastName: lastName);
+    db.insertUser(user);
+    return userMdoel;
   }
 }
