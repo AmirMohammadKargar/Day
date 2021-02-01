@@ -20,7 +20,6 @@ class UserLocalDataSourceImp implements UserLocalDataSource {
 
   @override
   Future<void> cacheUser(UserModel userToCache) {
-    // TODO: implement cacheUser
     throw UnimplementedError();
   }
 
@@ -48,7 +47,6 @@ class UserLocalDataSourceImp implements UserLocalDataSource {
   }
 
   @override
-  // TODO: implement isLogged
   Future<bool> get isLogged async {
     final result = sharedPreferences.getBool("ISLOGGED");
     return result;

@@ -55,13 +55,6 @@ void main() {
   });
   group('get user from DB', () {
     final List<TabelUser> tListUser = [];
-    final tUserModel = UserModel(
-        email: "email@email.com",
-        password: "123",
-        name: "Amir",
-        lastName: "Kargar");
-    final email = "email@email.com";
-    final password = "123";
     test(
       'should return user from DB',
       () async {
