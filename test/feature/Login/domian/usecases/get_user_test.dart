@@ -28,7 +28,7 @@ void main() {
       when(mockUserRepository.getUser(any, any))
           .thenAnswer((_) async => Right(tUser));
       // The "act" phase of the test. Call the not-yet-existent method.
-      final result = await usecase(Params(email: email, password: password));
+      final result = await usecase(ParamsOne(email: email, password: password));
       // UseCase should simply return whatever was returned from the Repository
       expect(result, Right(tUser));
       // Verify that the method has been called on the Repository

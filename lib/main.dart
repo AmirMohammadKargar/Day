@@ -10,6 +10,7 @@ import 'package:Day/core/utils/constans.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_translate/flutter_translate.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 LocalizationDelegate delegate;
 void main() async {
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SharedPreferences sharedPreferences;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [
@@ -55,7 +57,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/',
+      initialRoute:
+          sharedPreferences.getBool("ISLOGGED") == true ? '/Home' : '/',
       routes: {
         '/': (context) => Walkthrough(),
         '/SignUp': (context) => SignUp(),

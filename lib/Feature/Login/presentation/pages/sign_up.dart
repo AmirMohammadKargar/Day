@@ -1,7 +1,6 @@
 import 'package:Day/core/utils/constans.dart';
 import 'package:Day/core/widgets/custom_button.dart';
 import 'package:Day/core/widgets/custom_circle_avatar.dart';
-import 'package:Day/core/widgets/custom_circle_button.dart';
 import 'package:Day/core/widgets/custom_text_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_translate/flutter_translate.dart';

@@ -6,21 +6,21 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import '../repository/user_repository.dart';
 
-class GetUser extends UseCase<User, Params> {
+class GetUser extends UseCase<User, ParamsOne> {
   final UserRepository repository;
 
   GetUser(this.repository);
   @override
-  Future<Either<Failure, User>> call(Params params) async {
+  Future<Either<Failure, User>> call(ParamsOne params) async {
     return await repository.getUser(params.email, params.password);
   }
 }
 
-class Params extends Equatable {
+class ParamsOne extends Equatable {
   final String email;
   final String password;
 
-  Params({
+  ParamsOne({
     @required this.email,
     @required this.password,
   }) : super([email, password]);
