@@ -11,9 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_translate/flutter_translate.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'injection_container.dart' as di;
 
 LocalizationDelegate delegate;
 void main() async {
+  await di.init();
   delegate = await LocalizationDelegate.create(
     fallbackLocale: 'en_US',
     supportedLocales: [
